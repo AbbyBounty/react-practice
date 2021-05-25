@@ -2,11 +2,7 @@
 
 console.log('hrllo');
 
-var person = {
-    name: 'Person2',
-    address: 'pune'
-
-};
+var products = [{ id: 1, title: 'product1', description: "des 1", reviews: ["worst"] }, { id: 1, title: 'product1', description: "des 1", reviews: ["worst"] }, { id: 1, title: 'product1', description: "des 1" }, { id: 1, title: 'product1', description: "des 1", reviews: ["worst"] }, { id: 1, title: 'product1', description: "des 1" }];
 
 var template = React.createElement(
     'div',
@@ -14,30 +10,41 @@ var template = React.createElement(
     React.createElement(
         'h3',
         null,
-        'App1 '
+        'App3 '
     ),
-    React.createElement(
-        'div',
-        null,
-        'Name: ',
-        person.name
-    ),
-    React.createElement(
-        'div',
-        null,
-        'phone: ',
-        person.address
-    ),
-    person.email && React.createElement(
-        'div',
-        null,
-        'Email : ',
-        person.email
-    )
+    products.map(function (product) {
+        return React.createElement(
+            'div',
+            null,
+            React.createElement(
+                'div',
+                null,
+                'title:',
+                product.title
+            ),
+            React.createElement(
+                'div',
+                null,
+                'id:',
+                product.id
+            ),
+            React.createElement(
+                'div',
+                null,
+                'description:',
+                product.description
+            ),
+            product.reviews && React.createElement(
+                'div',
+                null,
+                ' Review : ',
+                product.reviews
+            ),
+            React.createElement('hr', null)
+        );
+    })
 );
 
 var root = document.getElementById("app");
 
 ReactDOM.render(template, root);
-
-{/* <div>phone: {person.email ? person.email : 'N/A'}</div> */}
