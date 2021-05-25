@@ -1,50 +1,77 @@
-'use strict';
+"use strict";
 
 console.log('hrllo');
 
-var products = [{ id: 1, title: 'product1', description: "des 1", reviews: ["worst"] }, { id: 1, title: 'product1', description: "des 1", reviews: ["worst"] }, { id: 1, title: 'product1', description: "des 1" }, { id: 1, title: 'product1', description: "des 1", reviews: ["worst"] }, { id: 1, title: 'product1', description: "des 1" }];
+var i = 0;
 
-var template = React.createElement(
-    'div',
-    null,
-    React.createElement(
-        'h3',
+var plus = function plus() {
+    i = i + 1;
+    render();
+};
+var minus = function minus() {
+    i = i - 1;
+    render();
+};
+
+var double = function double() {
+    i = i * 2;
+    render();
+};
+var triple = function triple() {
+    i = i * 3;
+    render();
+};
+
+var reset = function reset() {
+    i = 0;
+    render();
+};
+
+var render = function render() {
+    var template = React.createElement(
+        "div",
         null,
-        'App3 '
-    ),
-    products.map(function (product) {
-        return React.createElement(
-            'div',
+        React.createElement(
+            "h3",
             null,
-            React.createElement(
-                'div',
-                null,
-                'title:',
-                product.title
-            ),
-            React.createElement(
-                'div',
-                null,
-                'id:',
-                product.id
-            ),
-            React.createElement(
-                'div',
-                null,
-                'description:',
-                product.description
-            ),
-            product.reviews && React.createElement(
-                'div',
-                null,
-                ' Review : ',
-                product.reviews
-            ),
-            React.createElement('hr', null)
-        );
-    })
-);
+            "App4 "
+        ),
+        React.createElement(
+            "div",
+            null,
+            "Count: ",
+            i
+        ),
+        React.createElement(
+            "button",
+            { onClick: plus },
+            "plus"
+        ),
+        React.createElement(
+            "button",
+            { onClick: minus },
+            "minus"
+        ),
+        React.createElement("hr", null),
+        React.createElement(
+            "button",
+            { onClick: double },
+            "double"
+        ),
+        React.createElement(
+            "button",
+            { onClick: triple },
+            "triple"
+        ),
+        React.createElement("hr", null),
+        React.createElement(
+            "button",
+            { onClick: reset },
+            "reset"
+        )
+    );
 
-var root = document.getElementById("app");
+    ReactDOM.render(template, document.getElementById("app"));
+};
 
-ReactDOM.render(template, root);
+render();
