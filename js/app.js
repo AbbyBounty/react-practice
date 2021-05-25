@@ -5,12 +5,12 @@ var person = {};
 var submitData = function submitData(e) {
     console.log('dubmit data');
 
-    var personName = e.target.elements.personName.value;
-    var personAddress = e.target.elements.personAddress.value;
+    var title = e.target.elements.title.value;
+    var descriptionn = e.target.elements.descriptionn.value;
 
-    person.name = personName;
-    person.address = personAddress;
-    // console.log("name" + name)
+    person.title = title;
+    person.description = descriptionn;
+    // console.log("title" + title)
     // prevent default submission
     e.preventDefault();
     render();
@@ -31,15 +31,15 @@ var render = function render() {
             React.createElement(
                 "div",
                 null,
-                "Name: ",
-                React.createElement("input", { type: "text", name: "personName" }),
+                "title: ",
+                React.createElement("input", { type: "text", name: "title" }),
                 ''
             ),
             React.createElement(
                 "div",
                 null,
-                "Address: ",
-                React.createElement("input", { type: "text", name: "personAddress" }),
+                "description: ",
+                React.createElement("input", { type: "text", name: "descriptionn" }),
                 ''
             ),
             React.createElement(
@@ -58,20 +58,20 @@ var render = function render() {
             React.createElement(
                 "h1",
                 null,
-                "Person details "
+                "category details "
             ),
-            person.name && React.createElement(
+            person.title && React.createElement(
                 "div",
                 null,
-                "Name: ",
-                person.name,
+                "title: ",
+                person.title,
                 " "
             ),
-            person.address && React.createElement(
+            person.description && React.createElement(
                 "div",
                 null,
-                "Address: ",
-                person.address,
+                "description: ",
+                person.description,
                 " "
             )
         )
