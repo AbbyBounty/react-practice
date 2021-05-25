@@ -1,29 +1,18 @@
 "use strict";
 
-console.log('hrllo');
+var person = {};
 
-var i = 0;
+var submitData = function submitData(e) {
+    console.log('dubmit data');
 
-var plus = function plus() {
-    i = i + 1;
-    render();
-};
-var minus = function minus() {
-    i = i - 1;
-    render();
-};
+    var personName = e.target.elements.personName.value;
+    var personAddress = e.target.elements.personAddress.value;
 
-var double = function double() {
-    i = i * 2;
-    render();
-};
-var triple = function triple() {
-    i = i * 3;
-    render();
-};
-
-var reset = function reset() {
-    i = 0;
+    person.name = personName;
+    person.address = personAddress;
+    // console.log("name" + name)
+    // prevent default submission
+    e.preventDefault();
     render();
 };
 
@@ -34,40 +23,57 @@ var render = function render() {
         React.createElement(
             "h3",
             null,
-            "App4 "
+            "Form "
+        ),
+        React.createElement(
+            "form",
+            { onSubmit: submitData },
+            React.createElement(
+                "div",
+                null,
+                "Name: ",
+                React.createElement("input", { type: "text", name: "personName" }),
+                ''
+            ),
+            React.createElement(
+                "div",
+                null,
+                "Address: ",
+                React.createElement("input", { type: "text", name: "personAddress" }),
+                ''
+            ),
+            React.createElement(
+                "div",
+                null,
+                React.createElement(
+                    "button",
+                    { type: "submit" },
+                    "Submit"
+                )
+            )
         ),
         React.createElement(
             "div",
             null,
-            "Count: ",
-            i
-        ),
-        React.createElement(
-            "button",
-            { onClick: plus },
-            "plus"
-        ),
-        React.createElement(
-            "button",
-            { onClick: minus },
-            "minus"
-        ),
-        React.createElement("hr", null),
-        React.createElement(
-            "button",
-            { onClick: double },
-            "double"
-        ),
-        React.createElement(
-            "button",
-            { onClick: triple },
-            "triple"
-        ),
-        React.createElement("hr", null),
-        React.createElement(
-            "button",
-            { onClick: reset },
-            "reset"
+            React.createElement(
+                "h1",
+                null,
+                "Person details "
+            ),
+            person.name && React.createElement(
+                "div",
+                null,
+                "Name: ",
+                person.name,
+                " "
+            ),
+            person.address && React.createElement(
+                "div",
+                null,
+                "Address: ",
+                person.address,
+                " "
+            )
         )
     );
 
