@@ -1,0 +1,21 @@
+.title{
+    color:blue;
+    text-align: center;
+    background-color: yellowgreen;
+}
+
+.todo-app{
+    background-color: bisque;
+    
+}
+
+
+textarea{
+    resize: none;
+    width: 93.23%;
+}
+
+.item-list{
+    padding: 10px;
+    background-color: rgb(150, 150, 97);
+}
